@@ -1,6 +1,5 @@
 import random
-from pathlib import Path
-import json
+from overwrite_record import overwrite_record
 
 class Game():
     def __init__(self, min_num, max_num):
@@ -10,18 +9,7 @@ class Game():
         self.number = random.randint(self.min_num, self.max_num)
 
     def check_record(self):
-        path = Path('record.json')
-        try: 
-            contents = path.read_text()
-            record = json.loads(contents)
-        except FileNotFoundError:
-            record = 0
-        if record == 0:
-            contents = json.dumps(self.count)
-            path.write_text(contents)
-        elif self.count < record:
-            contents = json.dumps(self.count)
-            path.write_text(contents)    
+        overwrite_record(self.count, self.max_num)  
 
     def game(self):
         print(f'Я загадал число от {self.min_num} до {self.max_num}. Попробуй отгадать его ниже:')

@@ -9,7 +9,7 @@ def menu():
     while True:
         clear_screen()
         print('\n----- МЕНЮ -----')
-        choice = input('0 - начать\n1 - выйти\n2 - доп.информация\n3 - мой рекорд\nВыбери действие: ')
+        choice = input('0 - начать\n1 - выйти\n2 - доп.информация\n3 - мои рекорды\nВыбери действие: ')
 
         if choice == '0':
             selection_menu()
@@ -27,10 +27,14 @@ def menu():
         elif choice == '3':
             clear_screen()
             path = Path('record.json')
-            contents = path.read_text()
-            record = json.loads(contents)
+            try:
+                contents = path.read_text()
+                record = json.loads(contents)
+            except FileNotFoundError:
+                print('Рекордов пока нет! Сыграйте хотя бы раз, что бы они появились здесь.')
+                input('Enter - чтобы выйти: ')
 
-            print(f'Ваш рекорд: {record} попыток')
+            print(f'Ваши рекорды:\nЛегкий режим: {record['easy']} попыток.\nНормальный режим: {record['normal']} попыток.\nСложный режим: {record['hard']} попыток.')
             input('Enter - чтобы выйти: ')
         else:
             print(f'Ошибка! Действия "{choice}" не существует. Выберите существующие действие.')
