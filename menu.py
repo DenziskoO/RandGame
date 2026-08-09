@@ -33,6 +33,7 @@ def menu():
             except FileNotFoundError:
                 print('Рекордов пока нет! Сыграйте хотя бы раз, что бы они появились здесь.')
                 input('Enter - чтобы выйти: ')
+                continue
 
             print(f'Ваши рекорды:\nЛегкий режим: {record['easy']} попыток.\nНормальный режим: {record['normal']} попыток.\nСложный режим: {record['hard']} попыток.')
             input('Enter - чтобы выйти: ')
