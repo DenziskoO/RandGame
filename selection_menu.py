@@ -8,6 +8,7 @@ def selection_menu():
         choice_game = input('0 - легкий\n1 - нормальный\n2 - сложный\n3 - выйти в главное меню\nВыбери действие: ')
 
         if choice_game == '0':
+            clear_screen()
             game = Game(1, 10)
             print('-' * 30)
             game.game()
@@ -15,6 +16,7 @@ def selection_menu():
             input('Enter - чтобы выйти: ')
             
         elif choice_game == '1':
+            clear_screen()
             game = Game(1, 100)
             print('-' * 30)
             game.game()
@@ -22,6 +24,7 @@ def selection_menu():
             input('Enter - чтобы выйти: ')
 
         elif choice_game  == '2':
+            clear_screen()
             game = Game(1, 1000)
             print('-' * 30)
             game.game()

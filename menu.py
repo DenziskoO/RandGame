@@ -8,7 +8,7 @@ import json
 def menu():
     while True:
         clear_screen()
-        print('\n----- МЕНЮ -----')
+        print('----- МЕНЮ -----')
         choice = input('0 - начать\n1 - выйти\n2 - доп.информация\n3 - мои рекорды\nВыбери действие: ')
 
         if choice == '0':
