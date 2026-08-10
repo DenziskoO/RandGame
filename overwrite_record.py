@@ -21,11 +21,20 @@ def overwrite_record(count, max_num):
         }
 
     if max_num == 10:
-        record['easy'] = count
+        if record['easy'] == 0:
+            record['easy'] = count
+        elif count < record['easy']:
+            record['easy'] = count
     elif max_num == 100:
-        record['normal'] = count
+        if record['normal'] == 0:
+            record['normal'] = count
+        elif count < record['normal']:
+            record['normal'] = count
     elif max_num == 1000:
-        record['hard'] = count
+        if record['hard'] == 0:
+            record['hard'] = count
+        elif count < record['hard']:
+            record['hard'] = count
 
     contents = json.dumps(record)
     path.write_text(contents)
